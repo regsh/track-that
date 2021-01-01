@@ -1,7 +1,6 @@
 C:\Users\18284\source\repos\TrackThat\TrackThat\bin\Debug\TrackThat.exe.config
 C:\Users\18284\source\repos\TrackThat\TrackThat\bin\Debug\TrackThat.exe
 C:\Users\18284\source\repos\TrackThat\TrackThat\bin\Debug\TrackThat.pdb
-C:\Users\18284\source\repos\TrackThat\TrackThat\obj\Debug\TrackThat.csprojAssemblyReference.cache
 C:\Users\18284\source\repos\TrackThat\TrackThat\obj\Debug\MainWindow.g.cs
 C:\Users\18284\source\repos\TrackThat\TrackThat\obj\Debug\App.g.cs
 C:\Users\18284\source\repos\TrackThat\TrackThat\obj\Debug\TrackThat_MarkupCompile.cache
@@ -32,3 +31,6 @@ C:\Users\18284\source\repos\TrackThat\TrackThat\bin\Debug\System.Text.Json.xml
 C:\Users\18284\source\repos\TrackThat\TrackThat\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\18284\source\repos\TrackThat\TrackThat\bin\Debug\System.ValueTuple.xml
 C:\Users\18284\source\repos\TrackThat\TrackThat\obj\Debug\TrackThat.csproj.CopyComplete
+C:\Users\18284\source\repos\TrackThat\TrackThat\obj\Debug\AccessKeyWindow.g.cs
+C:\Users\18284\source\repos\TrackThat\TrackThat\obj\Debug\AccessKeyWindow.baml
+C:\Users\18284\source\repos\TrackThat\TrackThat\obj\Debug\TrackThat.csprojAssemblyReference.cache
