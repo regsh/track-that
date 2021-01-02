@@ -125,6 +125,9 @@
     <Compile Include="AccessKeyWindow.xaml.cs">
       <DependentUpon>AccessKeyWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ShippingItemDisplay.xaml.cs">
+      <DependentUpon>ShippingItemDisplay.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -138,6 +141,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="AccessKeyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShippingItemDisplay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

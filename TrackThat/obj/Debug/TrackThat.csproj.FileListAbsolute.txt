@@ -34,3 +34,5 @@ C:\Users\18284\source\repos\TrackThat\TrackThat\obj\Debug\TrackThat.csproj.CopyC
 C:\Users\18284\source\repos\TrackThat\TrackThat\obj\Debug\AccessKeyWindow.g.cs
 C:\Users\18284\source\repos\TrackThat\TrackThat\obj\Debug\AccessKeyWindow.baml
 C:\Users\18284\source\repos\TrackThat\TrackThat\obj\Debug\TrackThat.csprojAssemblyReference.cache
+C:\Users\18284\source\repos\TrackThat\TrackThat\obj\Debug\ShippingItemDisplay.g.cs
+C:\Users\18284\source\repos\TrackThat\TrackThat\obj\Debug\ShippingItemDisplay.baml

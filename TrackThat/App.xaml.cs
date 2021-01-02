@@ -39,7 +39,7 @@ namespace TrackThat
                 viewModel.FetchData();
                 window = new MainWindow();
                 window.DataContext = viewModel;
-                window.uxShipmentList.ItemsSource = viewModel.ShipInfoList;
+                //window.uxShipmentList.ItemsSource = viewModel.ShipInfoList;
                 window.Show();
                 return true;
             }

@@ -7,21 +7,41 @@
         mc:Ignorable="d"
         Title="TrackThat" Height="450" Width="800">
     <Grid VerticalAlignment="Stretch">
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Vertical" VerticalAlignment="Center" Margin="10">
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width=".5*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="10">
             <RadioButton Grid.Row="0" GroupName="Couriers" Content="UPS" Margin="5"/>
             <RadioButton Grid.Row="0" GroupName="Couriers" Content="USPS" Margin="5"/>
             <RadioButton Grid.Row="0" GroupName="Couriers" Content="FedEx" Margin="5"/>
-        </StackPanel>
-        <StackPanel Grid.Row="1" Orientation="Vertical" VerticalAlignment="Center" Margin="10">
             <Label Content="Tracking number:"/>
             <TextBox x:Name="uxTracking" MinHeight="20pt" MinWidth="100pt" Margin="5"/>
             <Button x:Name="uxGetInfo" Content="Get Status" Background="Azure" Margin="5"/>
+            <Button x:Name="uxAddPackage" Content="Add To My Packages" Background="Azure" Margin="5"/>
         </StackPanel>
-        <ListBox Grid.Row="2" ItemsSource="{Binding Path=ShipInfoList}" Height="100" Name="uxShipmentList"/>
+        <ListView Grid.Column="0" Name="uxShipmentList" ItemsSource="{Binding Path=ShipInfoList}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Tracking number: "/>
+                            <TextBlock Text="{Binding tracking_number}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Status: "/>
+                            <TextBlock Text="{Binding status_description}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Ship date: "/>
+                            <TextBlock Text="{Binding ship_date}"/>
+                        </StackPanel>
+                        
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
+        </ListView>
     </Grid>
 </Window>
