@@ -19,6 +19,7 @@ namespace TrackThat
         private static string _accessKey;
         private static HttpClient client;
         private static MainWindow window;
+        private static MainViewModel viewModel;
 
         /// <summary>
         /// Resets access key.
@@ -48,7 +49,9 @@ namespace TrackThat
             base.OnStartup(e);
             client = new HttpClient();
             client.BaseAddress = new Uri("https://api.shipengine.com");
+            viewModel = new MainViewModel();
             window = new MainWindow();
+            window.DataContext = viewModel;
             AccessKeyWindow access = new AccessKeyWindow(SetAccessKey);
             access.Show();
         }

@@ -118,6 +118,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MainViewModel.cs" />
+    <Compile Include="Shipment.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="ShipInfo.cs" />
     <Compile Include="AccessKeyWindow.xaml.cs">
@@ -169,6 +171,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ExJSON.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="TrackingNums.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
