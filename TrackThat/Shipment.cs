@@ -9,7 +9,7 @@ namespace TrackThat
     struct Shipment
     {
         public string Courier { get; }
-        public string TrackingNo;
+        public string TrackingNo { get; }
 
         public Shipment(string c, string t)
         {

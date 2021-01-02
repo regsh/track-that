@@ -11,6 +11,8 @@ using System.Windows;
 namespace TrackThat
 {
     public delegate bool SetKey(string key);
+    //public delegate void FetchData();
+
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
@@ -20,6 +22,7 @@ namespace TrackThat
         private static HttpClient client;
         private static MainWindow window;
         private static MainViewModel viewModel;
+        //private FetchData fetch;
 
         /// <summary>
         /// Resets access key.
@@ -33,6 +36,7 @@ namespace TrackThat
             if (response.IsSuccessStatusCode)
             {
                 _accessKey = key;
+                viewModel.FetchData();
                 window.Show();
                 return true;
             }
@@ -49,27 +53,15 @@ namespace TrackThat
             base.OnStartup(e);
             client = new HttpClient();
             client.BaseAddress = new Uri("https://api.shipengine.com");
-            viewModel = new MainViewModel();
+            viewModel = new MainViewModel(client);
+            //this.fetch = viewModel.FetchData;
             window = new MainWindow();
             window.DataContext = viewModel;
             AccessKeyWindow access = new AccessKeyWindow(SetAccessKey);
             access.Show();
         }
 
-        /*
         
-        
-
-            HttpResponseMessage response = client.GetAsync("/v1/tracking?carrier_code=ups&tracking_number=1Z46W9E10333593245").Result;
-            if (response.IsSuccessStatusCode)
-            {
-                var result = response.Content.ReadAsStringAsync();
-        string info = result.Result;
-        ShipInfo shipInfo = JsonSerializer.Deserialize<ShipInfo>(info);
-        /*
-        var employees = response.Content.ReadAsAsync<IEnumerable<Employee>>().Result;
-        grdEmployee.ItemsSource = employees;
-        */
     
 
 

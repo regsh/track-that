@@ -22,9 +22,6 @@
             <TextBox x:Name="uxTracking" MinHeight="20pt" MinWidth="100pt" Margin="5"/>
             <Button x:Name="uxGetInfo" Content="Get Status" Background="Azure" Margin="5"/>
         </StackPanel>
-        <TextBlock Name="uxStatusText" Grid.Row="2" Margin="10"/>
-
-
-
+        <ListBox Grid.Row="2" ItemsSource="{Binding Path=ShipInfoList}" Height="100" Name="uxShipmentList"/>
     </Grid>
 </Window>
