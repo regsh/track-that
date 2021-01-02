@@ -37,6 +37,9 @@ namespace TrackThat
             {
                 _accessKey = key;
                 viewModel.FetchData();
+                window = new MainWindow();
+                window.DataContext = viewModel;
+                window.uxShipmentList.ItemsSource = viewModel.ShipInfoList;
                 window.Show();
                 return true;
             }
@@ -55,8 +58,7 @@ namespace TrackThat
             client.BaseAddress = new Uri("https://api.shipengine.com");
             viewModel = new MainViewModel(client);
             //this.fetch = viewModel.FetchData;
-            window = new MainWindow();
-            window.DataContext = viewModel;
+            
             AccessKeyWindow access = new AccessKeyWindow(SetAccessKey);
             access.Show();
         }
