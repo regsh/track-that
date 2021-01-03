@@ -27,22 +27,47 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <StackPanel Orientation="Vertical">
-                
-            </StackPanel>
+            <Grid Grid.Row="0" Grid.Column="0" Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Margin="10" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right">Ship Date: </TextBlock>
+                <TextBlock Margin="10" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right">Carrier: </TextBlock>
+                <TextBlock Margin="10" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right">Tracking: </TextBlock>
+                <TextBlock Margin="10" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right">Status: </TextBlock>
+                <TextBlock Margin="10" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right">Estd Delivery:</TextBlock>
+
+                <TextBlock Margin="10" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding ElementName=uxShipmentList,Path=SelectedItem.ship_date}"/>
+                <TextBlock Margin="10" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding ElementName=uxShipmentList,Path=SelectedItem.carrier}"/>
+                <TextBlock Margin="10" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding ElementName=uxShipmentList,Path=SelectedItem.tracking_number}"/>
+                <TextBlock Margin="10" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding ElementName=uxShipmentList,Path=SelectedItem.status_description}"/>
+                <TextBlock Margin="10" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding ElementName=uxShipmentList,Path=SelectedItem.estimated_delivery_date}"/>
+
+
+            </Grid>
         
-        <ListView Grid.Row="1" Name="uxShipmentList" ItemsSource="{Binding Path=ShipInfoList}">
-                <ListView.View>
-                    <GridView x:Name="uxGridView">
-                        <GridViewColumn Header="Ship Date" DisplayMemberBinding="{Binding ship_date}" Width="Auto"/>
-                        <GridViewColumn Header="TrackingNo" DisplayMemberBinding="{Binding tracking_number}" Width="Auto" />
-                        <GridViewColumn Header="Carrier" DisplayMemberBinding="{Binding carrier}" Width="Auto"/>
-                        <GridViewColumn Header="Status" DisplayMemberBinding="{Binding status_description}" Width="Auto"/>
-                        <GridViewColumn Header="ETD" DisplayMemberBinding="{Binding estimated_delivery_date}" Width="Auto"/>
-                    </GridView>
-                </ListView.View>
+            <ListView Grid.Row="1" Name="uxShipmentList" ItemsSource="{Binding Path=ShipInfoList}">
+                    <ListView.View>
+                        <GridView x:Name="uxGridView">
+                            <GridViewColumn Header="Ship Date" DisplayMemberBinding="{Binding ship_date}" Width="Auto"/>
+                            <GridViewColumn Header="TrackingNo" DisplayMemberBinding="{Binding tracking_number}" Width="Auto" />
+                            <GridViewColumn Header="Carrier" DisplayMemberBinding="{Binding carrier}" Width="Auto"/>
+                            <GridViewColumn Header="Status" DisplayMemberBinding="{Binding status_description}" Width="Auto"/>
+                            <GridViewColumn Header="ETD" DisplayMemberBinding="{Binding estimated_delivery_date}" Width="Auto"/>
+                        </GridView>
+                    </ListView.View>
             
-        </ListView>
+            </ListView>
         </Grid>
     </Grid>
 </Window>
