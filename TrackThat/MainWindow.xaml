@@ -10,7 +10,7 @@
         
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width=".5*"/>
+            <ColumnDefinition Width=".3*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Stretch" Margin="10">
             <Button VerticalAlignment="Top">Refresh</Button>
@@ -29,8 +29,8 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Grid.Column="0" Margin="10">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*"/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="75"/>
+                    <ColumnDefinition Width=".5*"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -41,22 +41,32 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBlock Margin="10" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right">Ship Date: </TextBlock>
-                <TextBlock Margin="10" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right">Carrier: </TextBlock>
-                <TextBlock Margin="10" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right">Tracking: </TextBlock>
-                <TextBlock Margin="10" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right">Status: </TextBlock>
-                <TextBlock Margin="10" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right">Estd Delivery:</TextBlock>
+                <TextBlock Margin="5" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right">Ship Date: </TextBlock>
+                <TextBlock Margin="5" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right">Carrier: </TextBlock>
+                <TextBlock Margin="5" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right">Tracking: </TextBlock>
+                <TextBlock Margin="5" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right">Status: </TextBlock>
+                <TextBlock Margin="5" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right">ETD:</TextBlock>
 
-                <TextBlock Margin="10" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding ElementName=uxShipmentList,Path=SelectedItem.ship_date}"/>
-                <TextBlock Margin="10" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding ElementName=uxShipmentList,Path=SelectedItem.carrier}"/>
-                <TextBlock Margin="10" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding ElementName=uxShipmentList,Path=SelectedItem.tracking_number}"/>
-                <TextBlock Margin="10" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding ElementName=uxShipmentList,Path=SelectedItem.status_description}"/>
-                <TextBlock Margin="10" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding ElementName=uxShipmentList,Path=SelectedItem.estimated_delivery_date}"/>
+                <TextBlock Margin="5" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding ElementName=uxShipmentList,Path=SelectedItem.ship_date}"/>
+                <TextBlock Margin="5" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding ElementName=uxShipmentList,Path=SelectedItem.carrier}"/>
+                <TextBlock Margin="5" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding ElementName=uxShipmentList,Path=SelectedItem.tracking_number}"/>
+                <TextBlock Margin="5" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding ElementName=uxShipmentList,Path=SelectedItem.status_description}"/>
+                <TextBlock Margin="5" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding ElementName=uxShipmentList,Path=SelectedItem.estimated_delivery_date}"/>
 
+                <ListView Grid.Row="0" Grid.RowSpan="6" Grid.Column="2" Name="uxEventList" ItemsSource="{Binding ElementName=uxShipmentList, Path=SelectedItem.events}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Time" DisplayMemberBinding="{Binding occurred_at}" Width="Auto"/>
+                            <GridViewColumn Header="City" DisplayMemberBinding="{Binding city_locality}" Width="Auto" />
+                            <GridViewColumn Header="State" DisplayMemberBinding="{Binding state_province}" Width="Auto"/>
+                            <GridViewColumn Header="Description" DisplayMemberBinding="{Binding description}" Width="Auto"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
 
             </Grid>
         
-            <ListView Grid.Row="1" Name="uxShipmentList" ItemsSource="{Binding Path=ShipInfoList}">
+            <ListView Grid.Row="1" Name="uxShipmentList" Margin="10" ItemsSource="{Binding Path=ShipInfoList}">
                     <ListView.View>
                         <GridView x:Name="uxGridView">
                             <GridViewColumn Header="Ship Date" DisplayMemberBinding="{Binding ship_date}" Width="Auto"/>
@@ -66,7 +76,6 @@
                             <GridViewColumn Header="ETD" DisplayMemberBinding="{Binding estimated_delivery_date}" Width="Auto"/>
                         </GridView>
                     </ListView.View>
-            
             </ListView>
         </Grid>
     </Grid>
