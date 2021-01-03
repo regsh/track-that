@@ -36,6 +36,7 @@ namespace TrackThat
                     try
                     {
                         ShipInfo shipInfo = JsonSerializer.Deserialize<ShipInfo>(info);
+                        shipInfo.SetCarrier(s.Courier);
                         ShipInfoList.Add(shipInfo);
                     }
                     catch (Exception e) { MessageBox.Show($"Error: {e.Message}"); }

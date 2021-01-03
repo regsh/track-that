@@ -32,26 +32,15 @@
             </StackPanel>
         
         <ListView Grid.Row="1" Name="uxShipmentList" ItemsSource="{Binding Path=ShipInfoList}">
-               
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Tracking number: "/>
-                            <TextBlock Text="{Binding tracking_number}"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Status: "/>
-                            <TextBlock Text="{Binding status_description}"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Ship date: "/>
-                            <TextBlock Text="{Binding ship_date}"/>
-                        </StackPanel>
-                        
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
+                <ListView.View>
+                    <GridView x:Name="uxGridView">
+                        <GridViewColumn Header="Ship Date" DisplayMemberBinding="{Binding ship_date}" Width="Auto"/>
+                        <GridViewColumn Header="TrackingNo" DisplayMemberBinding="{Binding tracking_number}" Width="Auto" />
+                        <GridViewColumn Header="Carrier" DisplayMemberBinding="{Binding carrier}" Width="Auto"/>
+                        <GridViewColumn Header="Status" DisplayMemberBinding="{Binding status_description}" Width="Auto"/>
+                        <GridViewColumn Header="ETD" DisplayMemberBinding="{Binding estimated_delivery_date}" Width="Auto"/>
+                    </GridView>
+                </ListView.View>
             
         </ListView>
         </Grid>
