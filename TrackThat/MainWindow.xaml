@@ -12,7 +12,8 @@
             <ColumnDefinition/>
             <ColumnDefinition Width=".5*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="10">
+        <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Stretch" Margin="10">
+            <Button VerticalAlignment="Top">Refresh</Button>
             <RadioButton Grid.Row="0" GroupName="Couriers" Content="UPS" Margin="5"/>
             <RadioButton Grid.Row="0" GroupName="Couriers" Content="USPS" Margin="5"/>
             <RadioButton Grid.Row="0" GroupName="Couriers" Content="FedEx" Margin="5"/>
@@ -21,7 +22,17 @@
             <Button x:Name="uxGetInfo" Content="Get Status" Background="Azure" Margin="5"/>
             <Button x:Name="uxAddPackage" Content="Add To My Packages" Background="Azure" Margin="5"/>
         </StackPanel>
-        <ListView Grid.Column="0" Name="uxShipmentList" ItemsSource="{Binding Path=ShipInfoList}">
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Vertical">
+                
+            </StackPanel>
+        
+        <ListView Grid.Row="1" Name="uxShipmentList" ItemsSource="{Binding Path=ShipInfoList}">
+               
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -43,5 +54,6 @@
             </ListView.ItemTemplate>
             
         </ListView>
+        </Grid>
     </Grid>
 </Window>
