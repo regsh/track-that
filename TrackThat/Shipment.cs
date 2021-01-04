@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TrackThat
 {
-    struct Shipment
+    public struct Shipment
     {
         public string Courier { get; }
         public string TrackingNo { get; }

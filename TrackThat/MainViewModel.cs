@@ -27,24 +27,7 @@ namespace TrackThat
             if (ShipInfoList == null) ShipInfoList = new ObservableCollection<ShipInfo>();
             foreach (Shipment s in shipments)
             {
-                //HttpResponseMessage response = httpClient.GetAsync($"/v1/tracking?carrier_code=usps&tracking_number=9405511200928825016453").Result;
-                HttpResponseMessage response = httpClient.GetAsync($"/v1/tracking?carrier_code={s.Courier}&tracking_number={s.TrackingNo}").Result;
-                if (response.IsSuccessStatusCode)
-                {
-                    var result = response.Content.ReadAsStringAsync();
-                    string info = result.Result;
-                    try
-                    {
-                        ShipInfo shipInfo = JsonSerializer.Deserialize<ShipInfo>(info);
-                        shipInfo.SetCarrier(s.Courier);
-                        ShipInfoList.Add(shipInfo);
-                    }
-                    catch (Exception e) { MessageBox.Show($"Error: {e.Message}"); }
-                }
-                /*
-                var employees = response.Content.ReadAsAsync<IEnumerable<Employee>>().Result;
-                grdEmployee.ItemsSource = employees;
-                */
+                AddShipment(s);
             }
         }
 
@@ -75,6 +58,33 @@ namespace TrackThat
 
         }
 
+        public bool AddShipment(Shipment s)
+        {
+            ShipInfo shipInfo = TrackPackage(s);
+            if (shipInfo == null) return false;
+            else
+            {
+                ShipInfoList.Add(shipInfo);
+                return true;
+            }
+        }
 
+        public ShipInfo TrackPackage(Shipment s)
+        {
+            HttpResponseMessage response = httpClient.GetAsync($"/v1/tracking?carrier_code={s.Courier}&tracking_number={s.TrackingNo}").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var result = response.Content.ReadAsStringAsync();
+                string info = result.Result;
+                try
+                {
+                    ShipInfo shipInfo = JsonSerializer.Deserialize<ShipInfo>(info);
+                    shipInfo.SetCarrier(s.Courier);
+                    return shipInfo;
+                }
+                catch (Exception e) { MessageBox.Show($"Error: {e.Message}"); }
+            }
+            return null;
+        }
     }
 }

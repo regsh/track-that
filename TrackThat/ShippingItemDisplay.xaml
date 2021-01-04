@@ -5,8 +5,43 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TrackThat"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             d:DesignHeight="200" d:DesignWidth="600">
+    <Grid Grid.Row="0" Grid.Column="0" Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="75"/>
+            <ColumnDefinition Width=".5*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Margin="5" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right">Ship Date:</TextBlock>
+        <TextBlock Margin="5" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right">Carrier:</TextBlock>
+        <TextBlock Margin="5" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right">Tracking:</TextBlock>
+        <TextBlock Margin="5" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right">Status:</TextBlock>
+        <TextBlock Margin="5" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right">ETD:</TextBlock>
+
+        <TextBlock Margin="5" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding ship_date}"/>
+        <TextBlock Margin="5" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding carrier}"/>
+        <TextBlock Margin="5" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding tracking_number}"/>
+        <TextBlock Margin="5" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding status_description}"/>
+        <TextBlock Margin="5" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding estimated_delivery_date}"/>
+
+        <ListView Grid.Row="0" Grid.RowSpan="6" Grid.Column="2" Name="uxEventList" ItemsSource="{Binding events}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Time" DisplayMemberBinding="{Binding occurred_at}" Width="Auto"/>
+                    <GridViewColumn Header="City" DisplayMemberBinding="{Binding city_locality}" Width="Auto" />
+                    <GridViewColumn Header="State" DisplayMemberBinding="{Binding state_province}" Width="Auto"/>
+                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding description}" Width="Auto"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
     </Grid>
 </UserControl>

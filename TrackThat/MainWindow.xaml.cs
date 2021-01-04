@@ -23,9 +23,32 @@ namespace TrackThat
     /// </summary>
     public partial class MainWindow : Window
     {
+
+
         public MainWindow()
         {
+            //update = uv;
             InitializeComponent();
+        }
+
+        private void uxGetInfo_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void uxAddPackage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private Shipment ExtractUserInput()
+        {
+            string trackingNo = uxTrackingTxt.Text;
+            string carrier = "";
+            if (uxUpsRadio.IsChecked == true) carrier = "ups";
+            else if (uxUspsRadio.IsChecked == true) carrier = "usps";
+            else if (uxFedExRadio.IsChecked == true) carrier = "fedex";
+            return new Shipment(carrier, trackingNo);
         }
     }
 }

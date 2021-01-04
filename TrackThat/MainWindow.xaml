@@ -14,13 +14,13 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Stretch" Margin="10">
             <Button VerticalAlignment="Top">Refresh</Button>
-            <RadioButton Grid.Row="0" GroupName="Couriers" Content="UPS" Margin="5"/>
-            <RadioButton Grid.Row="0" GroupName="Couriers" Content="USPS" Margin="5"/>
-            <RadioButton Grid.Row="0" GroupName="Couriers" Content="FedEx" Margin="5"/>
+            <RadioButton Grid.Row="0" GroupName="Couriers" Content="UPS" Margin="5" Name="uxUpsRadio"/>
+            <RadioButton Grid.Row="0" GroupName="Couriers" Content="USPS" Margin="5" Name="uxUspsRadio"/>
+            <RadioButton Grid.Row="0" GroupName="Couriers" Content="FedEx" Margin="5" Name="uxFedExRadio"/>
             <Label Content="Tracking number:"/>
-            <TextBox x:Name="uxTracking" MinHeight="20pt" MinWidth="100pt" Margin="5"/>
-            <Button x:Name="uxGetInfo" Content="Get Status" Background="Azure" Margin="5"/>
-            <Button x:Name="uxAddPackage" Content="Add To My Packages" Background="Azure" Margin="5"/>
+            <TextBox x:Name="uxTrackingTxt" MinHeight="20pt" MinWidth="100pt" Margin="5"/>
+            <Button x:Name="uxGetInfo" Content="Get Status" Background="Azure" Margin="5" Click="uxGetInfo_Click"/>
+            <Button x:Name="uxAddPackage" Content="Add To My Packages" Background="Azure" Margin="5" Click="uxAddPackage_Click"/>
         </StackPanel>
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>

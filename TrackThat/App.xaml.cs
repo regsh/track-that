@@ -7,10 +7,12 @@ using System.Net.Http.Headers;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.IO.Packaging;
 
 namespace TrackThat
 {
     public delegate bool SetKey(string key);
+    public delegate void UpdateView(AppState s, object data);
     //public delegate void FetchData();
 
     /// <summary>
@@ -62,6 +64,28 @@ namespace TrackThat
             AccessKeyWindow access = new AccessKeyWindow(SetAccessKey);
             access.Show();
         }
+
+        /*
+        private void Update(AppState state, object data)
+        {
+            switch (state)
+            {
+                case AppState.ADD_PACKAGE:
+                    try
+                    {
+                        viewModel.AddShipment((Shipment)data);
+                    }
+                    catch (InvalidCastException e) { Console.WriteLine("Invalid cast in AppState.Add_Package"); };
+                    break;
+                case AppState.VIEW_PACKAGE:
+                    
+                default:
+                    break;
+                   
+            }
+
+        }
+        */
 
         
     
